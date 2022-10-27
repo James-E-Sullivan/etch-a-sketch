@@ -34,6 +34,8 @@ function createGrid(gridSize, gridDimension="960px") {
             gridRow.appendChild(gridSquare);
         }
  
-
     }
 }
+
+// createGrid on page load
+createGrid();
