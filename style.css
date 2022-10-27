@@ -1,6 +1,18 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
 .grid-container {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     width: 960px;
     height: 960px;
+}
+
+.grid-row {
+    display: flex;
 }
