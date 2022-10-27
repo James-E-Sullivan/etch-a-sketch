@@ -1,4 +1,4 @@
-function createGrid(gridSize, gridDimension="960px") {
+function createGrid(gridSize=16, gridDimension="960px") {
 
     // create gridContainer div
     const gridContainer = document.createElement('div');
