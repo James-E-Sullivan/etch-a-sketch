@@ -1,4 +1,4 @@
-function createGrid(gridSize=16, gridDimension="960px") {
+function createGrid(gridSize=16, gridDimension=960) {
 
     // create gridContainer div
     const gridContainer = document.createElement('div');
@@ -6,7 +6,7 @@ function createGrid(gridSize=16, gridDimension="960px") {
     
 
     // set height and width of gridContainer to 960px or given dimensions
-    gridContainer.setAttribute("style", `height: ${gridDimension}; width: ${gridDimension}`);
+    gridContainer.setAttribute("style", `height: ${gridDimension}px; width: ${gridDimension}px`);
 
     // append gridContainer to the page body
     const body = document.body;
@@ -18,7 +18,7 @@ function createGrid(gridSize=16, gridDimension="960px") {
         gridRow.classList.add('grid-row');
 
         // set dimensions of row based on dimensions of gridContainer
-        gridRow.setAttribute("style", `height: ${gridDimension / gridSize}; width: ${gridDimension}`);
+        gridRow.setAttribute("style", `height: ${gridDimension / gridSize}px; width: ${gridDimension}px`);
 
         // append gridRow to gridContainer
         gridContainer.appendChild(gridRow);
@@ -29,7 +29,7 @@ function createGrid(gridSize=16, gridDimension="960px") {
 
             // set dimensions of square based on dimensions of gridContainer
             gridSquare.setAttribute("style",
-             `height: ${gridDimension / gridSize}; width: ${gridDimension / gridSize}`);
+             `height: ${gridDimension / gridSize}px; width: ${gridDimension / gridSize}px`);
 
             gridRow.appendChild(gridSquare);
         }
