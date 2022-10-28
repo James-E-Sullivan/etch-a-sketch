@@ -13,3 +13,7 @@ body {
 .grid-row {
     display: flex;
 }
+
+.grid-square:hover {
+    background-color: darkgreen;
+}
