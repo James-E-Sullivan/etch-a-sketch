@@ -14,6 +14,7 @@ function createGrid(gridSize=16, gridDimension=960) {
 
     // loop to create grid rows and squares
     for (i = 0; i < gridSize; i++) {
+
         const gridRow = document.createElement('div');
         gridRow.classList.add('grid-row');
 
@@ -23,7 +24,7 @@ function createGrid(gridSize=16, gridDimension=960) {
         // append gridRow to gridContainer
         gridContainer.appendChild(gridRow);
 
-        for (i = 0; i < gridSize; i++) {
+        for (j = 0; j < gridSize; j++) {
             const gridSquare = document.createElement('div');
             gridSquare.classList.add("grid-square");
 
