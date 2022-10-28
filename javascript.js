@@ -1,10 +1,9 @@
 function createGrid(gridSize=16, gridDimension=960) {
-
+    
     // create gridContainer div
     const gridContainer = document.createElement('div');
     gridContainer.classList.add("grid-container");
     
-
     // set height and width of gridContainer to 960px or given dimensions
     gridContainer.setAttribute("style", `height: ${gridDimension}px; width: ${gridDimension}px`);
 
@@ -34,7 +33,6 @@ function createGrid(gridSize=16, gridDimension=960) {
 
             gridRow.appendChild(gridSquare);
         }
- 
     }
 }
 
