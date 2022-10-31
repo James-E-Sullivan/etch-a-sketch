@@ -17,3 +17,7 @@ body {
 .grid-square:hover {
     background-color: darkgreen;
 }
+
+.sketched {
+    background-color: lightgreen;
+}

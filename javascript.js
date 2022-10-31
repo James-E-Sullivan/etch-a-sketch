@@ -38,3 +38,13 @@ function createGrid(gridSize=16, gridDimension=960) {
 
 // createGrid on page load
 createGrid();
+
+// get nodelist of grid squares
+const gridSquares = document.querySelectorAll('.grid-square');
+
+// add eventlistener to change color for each gridsquare on mouseover
+gridSquares.forEach((square) => {
+    square.addEventListener('mouseover', () => {
+        square.classList.add('sketched');
+    });
+});
