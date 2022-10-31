@@ -48,3 +48,10 @@ gridSquares.forEach((square) => {
         square.classList.add('sketched');
     });
 });
+
+// add eventListener for click on reset button
+const resetButton = document.querySelector('#reset-button');
+resetButton.addEventListener('click', () => {
+    const newGridSize = prompt("Please enter the size (n) of the new n*n grid:");
+    createGrid(newGridSize);
+});
