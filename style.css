@@ -60,9 +60,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: auto;
     margin-top: 64px;
-    max-height: 100px;
     background-color: rgb(24, 22, 22);
     color: rgb(233, 221, 221)
 }
