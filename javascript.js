@@ -34,6 +34,21 @@ function createGrid(gridSize=16, gridDimension=960) {
             gridRow.appendChild(gridSquare);
         }
     }
+
+    // add eventListener to color grid squares on mouseover
+    addMouseOverEffect();
+}
+
+function addMouseOverEffect() {
+    // get nodelist of grid squares
+    const gridSquares = document.querySelectorAll('.grid-square');
+
+    // add eventlistener to change color for each gridsquare on mouseover
+    gridSquares.forEach((square) => {
+        square.addEventListener('mouseover', () => {
+            square.classList.add('sketched');
+        });
+    });
 }
 
 function removeGrid() {
@@ -44,16 +59,6 @@ function removeGrid() {
 
 // createGrid on page load
 createGrid();
-
-// get nodelist of grid squares
-const gridSquares = document.querySelectorAll('.grid-square');
-
-// add eventlistener to change color for each gridsquare on mouseover
-gridSquares.forEach((square) => {
-    square.addEventListener('mouseover', () => {
-        square.classList.add('sketched');
-    });
-});
 
 // add eventListener for click on reset button
 const resetButton = document.querySelector('#reset-button');
