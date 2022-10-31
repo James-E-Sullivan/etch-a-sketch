@@ -73,9 +73,28 @@ function addMouseOverDarken() {
     // get nodelist of grid squares
     const gridSquares = document.querySelectorAll('.grid-square');
 
+    // get background color of grid-container div from css
+    const gridContainer = document.querySelector('#grid-container');
+    const gridContainerStyle = getComputedStyle(gridContainer);
+    const gridContainerRGB = gridContainerStyle.backgroundColor;
+
     // add eventListener to change color for each gridsquare on mouseover
     gridSquares.forEach((square) => {
-        square.style.backgroundColor = "rgb(255, 255, 255)";
+
+        // set inline style of square to the grid background's default color
+        square.style.backgroundColor = gridContainerRGB;
+
+        // set variables containing original background color rgb values
+        const colorStrStart = square.style.backgroundColor;
+        const colorArrayStart = colorStrStart.slice(4, -1).split(", ");
+        const r_start = colorArrayStart[0];
+        const g_start = colorArrayStart[1];
+        const b_start = colorArrayStart[2];
+
+        // set variables equal to 10% of original background color rgb values
+        const rDecrement = r_start / 10;
+        const gDecrement = g_start / 10;
+        const bDecrement = b_start / 10;
 
         square.addEventListener('mouseover', () => {
 
@@ -85,9 +104,9 @@ function addMouseOverDarken() {
 
             // darken color by 10% until square is black
             if (timesVisited < 10) {
-                const r = parseInt(colorArray[0] - 25.5);  // decrement by 10% of 255
-                const g = parseInt(colorArray[1] - 25.5);
-                const b = parseInt(colorArray[2] - 25.5);
+                const r = parseInt(colorArray[0] - rDecrement);  // decrement by 10% of 255
+                const g = parseInt(colorArray[1] - gDecrement);
+                const b = parseInt(colorArray[2] - bDecrement);
                 square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
             }
 
