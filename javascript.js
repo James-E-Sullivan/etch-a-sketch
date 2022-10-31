@@ -63,10 +63,11 @@ createGrid();
 // add eventListener for click on reset button
 const resetButton = document.querySelector('#reset-button');
 resetButton.addEventListener('click', () => {
-    const newGridSize = parseInt(prompt("Please enter the size (n) of the new n*n grid:"));
-    
-    // a canceled prompt returns null and does nothing
-    if (!isNaN(newGridSize)) {
+    let newGridSize = parseInt(prompt("Please enter the size (n) of the new n*n grid.\nn must be an integer between 1 and 100."));
+
+    // Response over max size creates max size grid. Other invalid responses do nothing.
+    if (!isNaN(newGridSize) && newGridSize > 0) {
+        if (newGridSize > 100) newGridSize = 100;  // max size is 100
         removeGrid();
         createGrid(newGridSize);
     }
