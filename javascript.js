@@ -36,7 +36,7 @@ function createGrid(gridSize=16, gridDimension=960) {
     }
 
     // add eventListener to color grid squares on mouseover
-    addMouseOverEffect();
+    addMouseOverRGB();
 }
 
 function addMouseOverEffect() {
@@ -49,6 +49,21 @@ function addMouseOverEffect() {
             square.classList.add('sketched');
         });
     });
+}
+
+function addMouseOverRGB() {
+    // get nodelist of grid squares
+    const gridSquares = document.querySelectorAll('.grid-square');
+
+    // add eventListener to change color for each gridsquare on mouseover
+    gridSquares.forEach((square) => {
+        square.addEventListener('mouseover', () => {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        })
+    })
 }
 
 function removeGrid() {
