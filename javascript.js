@@ -1,4 +1,9 @@
 function createGrid(gridSize=16, gridDimension=960) {
+
+    // sets gridDimension based on innerWidth if too small
+    if (window.innerWidth < 960) {
+        gridDimension = parseInt(window.innerWidth * 0.9)
+    }
     
     // create gridContainer div
     const gridContainer = document.createElement('div');
