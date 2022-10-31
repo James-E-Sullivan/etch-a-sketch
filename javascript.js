@@ -7,9 +7,9 @@ function createGrid(gridSize=16, gridDimension=960) {
     // set height and width of gridContainer to 960px or given dimensions
     gridContainer.setAttribute("style", `height: ${gridDimension}px; width: ${gridDimension}px`);
 
-    // append gridContainer to the page body
-    const body = document.body;
-    body.appendChild(gridContainer);
+    // append gridContainer to its container div
+    const containerDiv = document.getElementById('alignment-container');
+    containerDiv.appendChild(gridContainer);
 
     // loop to create grid rows and squares
     for (i = 0; i < gridSize; i++) {
