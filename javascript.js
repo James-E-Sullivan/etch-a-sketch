@@ -27,6 +27,9 @@ function createGrid(gridSize=16, gridDimension=960) {
             const gridSquare = document.createElement('div');
             gridSquare.classList.add("grid-square");
 
+            // set a "times-visited" counter to 0 - used for incrementally changing color
+            gridSquare.setAttribute('data-times-visited', 0);
+
             // set dimensions of square based on dimensions of gridContainer
             gridSquare.setAttribute("style",
              `height: ${gridDimension / gridSize}px; width: ${gridDimension / gridSize}px`);
@@ -36,7 +39,7 @@ function createGrid(gridSize=16, gridDimension=960) {
     }
 
     // add eventListener to color grid squares on mouseover
-    addMouseOverRGB();
+    addMouseOverDarken();
 }
 
 function addMouseOverEffect() {
@@ -62,8 +65,38 @@ function addMouseOverRGB() {
             const g = Math.floor(Math.random() * 255);
             const b = Math.floor(Math.random() * 255);
             square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-        })
-    })
+        });
+    });
+}
+
+function addMouseOverDarken() {
+    // get nodelist of grid squares
+    const gridSquares = document.querySelectorAll('.grid-square');
+
+    // add eventListener to change color for each gridsquare on mouseover
+    gridSquares.forEach((square) => {
+        square.style.backgroundColor = "rgb(255, 255, 255)";
+
+        square.addEventListener('mouseover', () => {
+
+            let timesVisited = square.getAttribute('data-times-visited');
+            const colorStr = square.style.backgroundColor;  // i.e. "rgb(255, 255, 255)"
+            const colorArray = colorStr.slice(4, -1).split(", ");  // i.e. [255, 255, 255]
+
+            // darken color by 10% until square is black
+            if (timesVisited < 10) {
+                const r = parseInt(colorArray[0] - 25.5);  // decrement by 10% of 255
+                const g = parseInt(colorArray[1] - 25.5);
+                const b = parseInt(colorArray[2] - 25.5);
+                square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            }
+
+            // increment times visited
+            timesVisited++;
+            square.setAttribute('data-times-visited', `${timesVisited}`);
+
+        });
+    });
 }
 
 function removeGrid() {
