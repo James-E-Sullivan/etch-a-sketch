@@ -2,7 +2,7 @@ function createGrid(gridSize=16, gridDimension=960) {
     
     // create gridContainer div
     const gridContainer = document.createElement('div');
-    gridContainer.classList.add("grid-container");
+    gridContainer.setAttribute('id', 'grid-container');
     
     // set height and width of gridContainer to 960px or given dimensions
     gridContainer.setAttribute("style", `height: ${gridDimension}px; width: ${gridDimension}px`);
@@ -36,6 +36,12 @@ function createGrid(gridSize=16, gridDimension=960) {
     }
 }
 
+function removeGrid() {
+    // get gridContainer div as object
+    const gridContainer = document.getElementById('grid-container');
+    gridContainer.remove();
+}
+
 // createGrid on page load
 createGrid();
 
@@ -53,5 +59,6 @@ gridSquares.forEach((square) => {
 const resetButton = document.querySelector('#reset-button');
 resetButton.addEventListener('click', () => {
     const newGridSize = prompt("Please enter the size (n) of the new n*n grid:");
+    removeGrid();
     createGrid(newGridSize);
 });
