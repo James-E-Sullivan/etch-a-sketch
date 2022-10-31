@@ -63,10 +63,10 @@ createGrid();
 // add eventListener for click on reset button
 const resetButton = document.querySelector('#reset-button');
 resetButton.addEventListener('click', () => {
-    const newGridSize = prompt("Please enter the size (n) of the new n*n grid:");
-
+    const newGridSize = parseInt(prompt("Please enter the size (n) of the new n*n grid:"));
+    
     // a canceled prompt returns null and does nothing
-    if (newGridSize !== null) {
+    if (!isNaN(newGridSize)) {
         removeGrid();
         createGrid(newGridSize);
     }
